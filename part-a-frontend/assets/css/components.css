@@ -1,0 +1,8 @@
+/*navbar styles */
+nav {
+    background-color: var(--primary-color);
+    padding: 10px;
+    text-align: center;
+    color: var(--secondary-color);
+    
+}
