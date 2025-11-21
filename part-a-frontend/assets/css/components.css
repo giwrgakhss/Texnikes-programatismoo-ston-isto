@@ -1,0 +1,16 @@
+/*navbar styles */
+nav {
+    background-color: var(--primary-color);
+    padding: 10px;
+    text-align: center;
+    color: var(--secondary-color);
+    
+}
+
+.about-page h1 {
+    font-size: 9rem;
+    font-weight: 900;
+    text-align: left;
+    margin-left: 0;
+    margin-top: 10px;
+}

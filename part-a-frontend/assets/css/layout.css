@@ -1,0 +1,21 @@
+/*  MOBILE - 1 STHLH - DEFAULT MOBILE-FIRST */
+.page-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+}
+
+/* TABLET - 2 STHLES */
+@media (min-width: 600px) {
+    .page-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+/* DESKTOP - 3 STHLES */
+@media (min-width: 900px) {
+    .page-grid {
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+}
