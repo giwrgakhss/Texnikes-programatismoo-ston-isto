@@ -41,11 +41,12 @@ nav {
     max-width: 360px;
     max-height: 360px;
     margin: 0 auto;
+    
 }
 
 .about-image img {
     width: 100%;
-    align-self: center;
+    align-self: auto;
     height: auto;
     border-radius: 20px 20px 0 0;
     display: block;
@@ -79,38 +80,9 @@ nav {
 }
 
 @media (min-width: 730px) {
-    .about-title {
-        grid-column: 1;
-        grid-row: 1;
-        text-align: left;
-        align-self: center;
-        margin-left: 15px;
-    }
-
-    .about-content {
-        grid-column: 2;
-        grid-row: 1;
-        font-size: 1.2rem;
-        text-align: right;
-        align-self: center;
-        margin-right: 15px;
-    }
-
     .about-title h1 {
         font-size: clamp(2.2rem, 6vw, 4rem);
         line-height: 0.9;
-    }
-
-    .team-card1 {
-        grid-row: 2;
-        grid-column: 1;
-        margin-top: 20px;
-    }
-
-    .team-card2 {
-        grid-row: 2;
-        grid-column: 2;
-        margin-top: 20px;
     }
 
     .about-image img {
@@ -118,58 +90,58 @@ nav {
         height: auto;
         border-radius: 20px 20px 0 0;
         display: block;
-        max-width: 300px;
+        max-width: 100%;
     }
 
-    .team-card1, .team-card2 {
-        width: 100%;
-        max-width: 300px;
-        margin: 0 auto;
-        grid-row: 3;
-    }
-
-    .about-team {
+    .about-image-g p {
+        background-color: #f2f7a6;
+        padding: 10px 15px;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.4;
         text-align: center;
-        grid-column: 1 / span 2;
-        grid-row: 2;
-        margin-bottom: 10px;
-}
+        border-radius: 0 0 20px 20px;
+        max-width: 100%;
+        width: 100%;
+    }
+
+    .about-image-o p {
+        background-color: #531253;
+        padding: 10px 15px;
+        margin: 0;
+        font-size: 1rem;
+        line-height: 1.4;
+        text-align: center;
+        border-radius: 0 0 20px 20px;
+        max-width: 100%;
+        width: 100%;
+    }
 }
 
 @media (min-width: 900px) {
-    .about-title {
-        grid-column: 1/ span 1;
-        grid-row: 1;
-        text-align: left;
-        margin-left: 10px;
+    .about-image img {
+        width: 100%;
+        height: auto;
+        max-width: 100%;
+        border-radius: 20px 20px 0 0;
+        display: block;
+        box-sizing: border-box;
+        align-self: center;
     }
 
-    .about-content {
-        grid-column: 3 / span 1;
-        grid-row: 1;
-        text-align: right;
-        max-width: 90%;
-    }
-
-    .about-team {
-        grid-column: 1 / span 3;
-        grid-row: 2;
+    .about-image-g p,
+    .about-image-o p {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+        border-radius: 0 0 20px 20px;
+        margin: 0;
+        padding: 10px 15px;
+        font-size: 1rem;
+        line-height: 1.4;
         text-align: center;
     }
-
-    .team-card1 {
-        grid-column: 1;
-        grid-row: 3;
-        justify-self: center;
-    }
-
-    .team-card2 {
-        grid-column: 3;
-        grid-row: 3;
-        justify-content: center;
-    }
 }
-
 
 
 
