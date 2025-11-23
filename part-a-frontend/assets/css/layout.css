@@ -4,12 +4,20 @@
     grid-template-columns: 1fr;
     gap: 20px;
     padding: 20px;
+    justify-content: center;
+    margin: 0 auto;
 }
 
 /* TABLET - 2 STHLES */
-@media (min-width: 600px) {
+@media (min-width: 730px) {
     .page-grid {
         grid-template-columns: 1fr 1fr;
+        display: grid;
+        gap: 40px;
+        padding: 40px;
+        min-height: 150vh;
+        align-items: center;
+        grid-template-rows: auto auto;
     }
 }
 
@@ -17,5 +25,26 @@
 @media (min-width: 900px) {
     .page-grid {
         grid-template-columns: 1fr 1fr 1fr;
+        gap: 40px;
+        align-items: start;
     }
 }
+
+body {
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+}
+
+main {
+  flex: 1;
+}
+
+footer {
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+}
+
