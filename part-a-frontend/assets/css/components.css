@@ -26,6 +26,30 @@ nav a:hover {
     color: var(--primary-color);
 }
 
+li {
+    display: block;
+    margin: 10 15px;
+    background-color: var(--tertiary-color);
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+    font-size: 1.2rem;
+    line-height: 1.4;
+    text-align: center;
+}
+
+footer {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    font-family: var(--font-family);
+}
+
+
 
 
 .about-title h1 {
@@ -37,7 +61,7 @@ nav a:hover {
     line-height: 0.9;
 }
 
-.about-title {
+title {
     margin-bottom: 20px;
 }
 
@@ -47,8 +71,8 @@ nav a:hover {
 }
 
 
-.about-content p {
-    background-color: #97d8b2;
+p {
+    background-color: var(--tertiary-color);
     padding: 20px;
     border-radius: 12px;
     box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
