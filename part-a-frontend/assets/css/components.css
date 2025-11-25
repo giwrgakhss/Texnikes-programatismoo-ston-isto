@@ -1,12 +1,32 @@
 /*navbar styles */
+
+
+/*Γενική τοποθέτιση nav*/
 nav {
+    list-style-type: none;
     background-color: var(--primary-color);
-    padding: 10px;
+    padding: 20px;
+    margin: auto;
     text-align: center;
     color: var(--secondary-color);
-    width: 100%;
-    display: block;   
+
 }
+/*Οι λέξεις μεσα στο nav */
+nav a {
+    text-decoration: none;
+    color: var(--secondary-color);
+    font-weight: bold;
+    padding: 8px 12px;
+    border-radius: 5px;
+    font-family: var(--font-family);
+}
+/*To hover πάνω στο nav a */
+nav a:hover {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+
 
 .about-title h1 {
     font-size: 70px;
