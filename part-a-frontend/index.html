@@ -9,6 +9,9 @@
     <link rel="stylesheet" href="assets/css/layout.css">
     <link rel="stylesheet" href="assets/css/components.css">
     <link rel="stylesheet" href="assets/css/pages/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
 </head>
 <body>
     <header>
@@ -17,17 +20,30 @@
         <div id="upper-header" style="background: var(--primary-color);">
         </div>
         <!-- μικρή επικεφαλίδα -->
-        <div id="lower-header">
+        <div id="site">
+            <a href="/">E-learning</a>
         </div>
             <nav>
-                    <a href="index.html">Αρχική</a>
-                    <a href="courses.html">Μαθήματα</a>  
-                    <a href="register.html">Εγγραφή</a>
-                    <a href="about.html">Σχετικά</a>
-        </nav>
-
-            
+                <ul>
+                    <li><a href="index.html">Αρχική</a></li>
+                    <li><a href="courses.html">Μαθήματα</a></li>  
+                    <li><a href="register.html">Εγγραφή</a></li>
+                    <li><a href="about.html">Σχετικά</a></li>
+                </ul>
+            </nav>
+        <div id="hamburger-icon" onclick="toogleMobileMenu()">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+            <ul class="mobile-menu">
+                <li><a href="index.html">Αρχική</a></li>
+                <li><a href="courses.html">Μαθήματα</a></li>  
+                <li><a href="register.html">Εγγραφή</a></li>
+                <li><a href="about.html">Σχετικά</a></li>
+            </ul>
+        </div> 
     </header>
+    <script src="assets/js/index.js"></script>
     <main>
            
         <h1 style="text-align: center;">Καλωσήρθες στην πλατφόρμα E-Learn!</h1>

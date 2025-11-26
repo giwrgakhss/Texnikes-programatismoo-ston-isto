@@ -138,6 +138,19 @@ main {
   margin: auto;
 }
 
+header {
+  background-color: var(black);
+  color: var(--secondary-color);
+  padding: 0 20px;
+  height:50px;
+  display:flex;
+  justify-content: space-between;
+}
+
+header a {
+    text-decoration: none;
+}
+
 footer {
   background-color: var(--primary-color);
   color: var(--secondary-color);
@@ -145,4 +158,8 @@ footer {
   padding: 10px;
   width: 100%;
 }
-
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
