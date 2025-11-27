@@ -58,8 +58,7 @@
         border-radius: 20px;
     }
 
-    .about-image-g p,
-    .about-image-o p {
+    .about-image-g p,.about-image-o p {
       width: 100%;
       max-width: 360px;
       border-radius: 0 0 20px 20px;
@@ -125,7 +124,30 @@
         border-radius: 20px;
     }
 }
-
+/* Οταν το max width είναι 600px το navigation κρυβεται και εμφανιζεται το hamburger icon */
+@media only screen and (max-width: 600px) {
+    header nav{
+        display: none;
+    }
+    #hamburger-icon{
+    display: block;
+    }
+}
+/* όταν το min width είναι 601px το hamburger icon κρυβεται και εμφανιζεται το navigation */
+@media only screen and (min-width: 601px) {
+    #hamburger-icon{
+        display: none !important;
+    }
+} 
+@media(max-width:600px) {
+    p{
+        width: 100%;
+        height: auto;
+        font-size: calc(1rem + 1vw);
+        display: inline-flex;
+    }
+    
+}
 body {
   min-height:100vh;
   display:flex;
@@ -152,8 +174,8 @@ header a {
 }
 
 footer {
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
+  background-color: var(--secondary-color);
+  color: var(--primary-color);
   text-align: center;
   padding: 10px;
   width: 100%;
