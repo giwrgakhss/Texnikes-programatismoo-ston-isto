@@ -1,8 +1,25 @@
-const courses=[
-    {
-        title: "Εισαγωγή στον Προγραμματισμό",
-        description: "Μάθε τα βασικά του προγραμματισμού με γλώσσες όπως Python και JavaScript.",
-        level: "begginer",
-        link: "courses/intro-to-programming.html"
-    }
-]
+
+const courses = [
+"Εισαγωγή στην Πληροφορική",
+"Προγραμματισμός Ι",
+"Προγραμματισμός ΙΙ",
+"Βάσεις Δεδομένων",
+"Δομές Δεδομένων και Αλγόριθμοι",
+"Ανάλυση και Σχεδίαση Συστημάτων",
+"Δίκτυα Υπολογιστών",
+"Ασφάλεια Πληροφοριών",
+"Τεχνητή Νοημοσύνη",
+"Μηχανική Μάθηση",
+"Ανάπτυξη Εφαρμογών Ιστού",
+"Κινητές Εφαρμογές",
+"Υπολογιστική Νέφη",
+"Ανάλυση Δεδομένων", 
+];
+
+const list = document.getElementById("ulid");       
+courses.forEach(course => {
+    const li = document.createElement("li");
+    li.textContent = course;
+    list.appendChild(li);
+});
+
