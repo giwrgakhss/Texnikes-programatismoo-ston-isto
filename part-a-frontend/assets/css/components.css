@@ -116,17 +116,100 @@ transition: 0.3s;
     font-family: var(--font-family);
 }
 .course-card {
-    border-radius: 12px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
     padding: 20px;
     margin: 20px auto;
-    max-width: 400px;
+    font-family: var(--font-family);
+    max-width: 100%;
+}
+
+.course-card li {
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 20px;
+    list-style-type: none;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+}
+
+.course-card li:hover {
+    background-color: #f0f0f0;
+    transform: translateY(-10px);
+}
+
+.course-card li h2 {
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: var(--primary-color);
+    font-family: var(--font-family);
+    
+}
+
+.course-card li p {
+    background-color: transparent;
+    padding: 5px 0;
+    box-shadow: none;
+    font-size: 0.95rem;
+    text-align: left;
+    font-family: var(--font-family);
+}
+#course-card li a:hover:not(.header) {
+  background-color: #eee;
+}
+.search-bar-course{
     text-align: center;
+    margin: 20px 0;
+
+}
+.search-bar-course input{
+    width: 80%;
+    max-width: 400px;
+    padding: 10px 15px;
+    font-size: 1rem;
+    border: 2px solid black;
+    border-radius: 8px;
+    box-sizing: border-box;
     font-family: var(--font-family);
 }
 
+
 /* REGISTER PAGE */
 
+<<<<<<< HEAD
 .register-form p.title {
+=======
+    
+
+    
+
+
+
+.about-title h1 {
+    font-size: 70px;
+    font-weight: 900;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    line-height: 0.9;
+}
+
+title {
+    margin-bottom: 20px;
+}
+
+.about-title, .about-content, .team-card1, .team-card2 {
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+p {
+    padding: 20px;
+    border-radius: 12px;
+>>>>>>> 3abc7f03232abb2b038277307f1abf1fc0fb7f73
     font-size: 1.2rem;
     font-weight: 700;
     background-color: var(--primary-color);
@@ -367,6 +450,30 @@ transition: 0.3s;
     border-radius: 15px;
     float: right;
 
+}
+/*=============MEDIA QUERIES================= */
+@media only screen and (max-width: 600px) {
+    .index-image1 img,
+    .index-image2 img {
+        float: none;
+        max-width: 100%;
+        margin: 20px 0;
+        display: block;
+    }
+
+
+    .mobile-menu {
+        left: 0;
+        right: 0;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
+    
+    .course-card {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
 }
 
 
