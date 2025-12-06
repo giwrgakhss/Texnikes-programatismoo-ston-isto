@@ -124,147 +124,218 @@ transition: 0.3s;
     font-family: var(--font-family);
 }
 
+/* REGISTER PAGE */
 
-    
-
-    
-
-
-
-.about-title h1 {
-    font-size: 70px;
-    font-weight: 900;
-    margin: 0;
-    padding: 0;
-    text-align: center;
-    line-height: 0.9;
-}
-
-title {
-    margin-bottom: 20px;
-}
-
-.about-title, .about-content, .team-card1, .team-card2 {
-    margin: 0 auto;
-    width: 100%;
-}
-
-
-p {
-    background-color: var(--tertiary-color);
-    padding: 20px;
-    border-radius: 12px;
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.8);
+.register-form p.title {
     font-size: 1.2rem;
+    font-weight: 700;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 10px 15px;
+    margin: 0;
     line-height: 1.4;
     text-align: center;
-}
+    border-radius: 20px 20px 20px 20px
 
-.team-card1, .team-card2 {
-    max-width: 360px;
-    max-height: 360px;
-    margin: 0 auto;
-    
 }
-
-.about-image img {
+.register-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    min-height: 92.5vh;
     width: 100%;
-    align-self: auto;
-    height: auto;
-    border-radius: 20px 20px 0 0;
-    display: block;
-    max-height: 360px;
-    max-width: 360px;
+    overflow: hidden;
+    background: linear-gradient(to right bottom, var(--primary-color) 50%, white 50%);
 }
 
-.about-image-g p {
-    background-color: #f2f7a6;
-    padding: 10px 15px;
-    margin: 0;
-    font-size: 1rem;
-    line-height: 1.4;
-    text-align: center;
-    border-radius: 0 0 20px 20px;
+
+.register-form form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    max-width: 380px;
+    background: #ffffff;
+    padding: 30px;
+    border-radius: 20px;
+    width: 100%;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
 }
 
-.about-image-o p {
-    background-color: #531253;
-    padding: 10px 15px;
-    margin: 0;
+.register-form label {
+    width: 100%;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.register-form input {
+    padding: 14px 16px;
     font-size: 1rem;
-    line-height: 1.4;
+    border-radius: 8px;
+    border: 1px solid black;
+    width: 100%;
+    outline: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.register-form input:focus {
+    border-color: lightgreen;
+}
+
+.register-form button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--primary-color);
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.register-form button:hover {
+    color: #531253;
+    transition: 0.2s ease;
+}
+
+    
+
+/* ABOUT PAGE */
+
+.about-title-paragraph {
+    background: var(--primary-color);
+    color:white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 50px 40px;
+    gap: 40px;
+    min-height: 70vh;
+}
+
+.about-sxetika h1 {
+    font-size: 8.5rem;
+    font-weight: 900;
+    line-height: 1;
+    margin: 0;
+}
+
+.about-paragrafos {
+    background: #531252;
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 380px;
+}
+
+.about-paragrafos p {
+    color: white;
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.about-team {
+    background: var(--primary-color);
+    padding: 60px 80px;
     text-align: center;
-    border-radius: 0 0 20px 20px;
 }
 
 .about-team h2 {
+    color: white;
+    font-size: 3rem;
+    margin-bottom: 40px;
+    font-weight: 800;
+}
+
+.team-pics {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.team-card {
+    background: white;
+    border-radius: 20px;
+    width: 300px;
+    overflow: hidden;
+}
+
+.team-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.team-card p {
+    margin: 0;
+    padding: 15px;
+    font-size: 1rem;
+    font-weight: bold;
     text-align: center;
-    font-size: 2rem;
+    color: white;
 }
 
-@media (min-width: 730px) {
-    .about-title h1 {
-        font-size: clamp(2.2rem, 6vw, 4rem);
-        line-height: 0.9;
+.team-card p.parg {background: #f2f7a6;}
+.team-card p.paro {background: orange;}
+
+.about-title-paragraph, .about-team {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+}
+
+/*ABOUT PAGE MOBILE*/
+@media (max-width:600px) {
+    .about-title-paragraph {
+        flex-direction: column;
+        padding: 40px 20px;
     }
 
-    .about-image img {
-        width: 100%;
-        height: auto;
-        border-radius: 20px 20px 0 0;
-        display: block;
-        max-width: 100%;
+    .about-sxetika h1 {
+        font-size: 3rem;
     }
 
-    .about-image-g p {
-        background-color: #f2f7a6;
-        padding: 10px 15px;
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.4;
-        text-align: center;
-        border-radius: 0 0 20px 20px;
-        max-width: 100%;
-        width: 100%;
+    .about-paragrafos {
+        padding: 25px;
+        border-radius: 30px;
+        max-width: 90%;
+        grid-row: 2;
     }
 
-    .about-image-o p {
-        background-color: #531253;
-        padding: 10px 15px;
-        margin: 0;
-        font-size: 1rem;
-        line-height: 1.4;
-        text-align: center;
-        border-radius: 0 0 20px 20px;
-        max-width: 100%;
+    .about-team h2 {
+        font-size: 2.5rem;
+    }
+
+    .team-card {
         width: 100%;
+        max-width: 320px;
+    }
+
+    .team-card img {
+        height: 220px;
     }
 }
 
-@media (min-width: 900px) {
-    .about-image img {
-        width: 100%;
-        height: auto;
-        max-width: 100%;
-        border-radius: 20px 20px 0 0;
-        display: block;
-        box-sizing: border-box;
-        align-self: center;
+/*ABOUT PAGE TABLET*/
+@media (max-width: 900px) {
+    .about-title-paragraph {
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
     }
 
-    .about-image-g p,
-    .about-image-o p {
-        width: 100%;
-        max-width: 100%;
-        box-sizing: border-box;
-        border-radius: 0 0 20px 20px;
-        margin: 0;
-        padding: 10px 15px;
-        font-size: 1rem;
-        line-height: 1.4;
+    .about-sxetika h1 {
         text-align: center;
+        font-size: 4rem;
+    }
+
+    .about-paragrafos {
+        max-width: 90%
     }
 }
+
 /*=============INDEX================= */
 .index-title {
     font-size: 2.5rem;

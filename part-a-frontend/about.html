@@ -6,80 +6,75 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="About Page">
+
   <link rel="stylesheet" href="assets/css/theme.css">
   <link rel="stylesheet" href="assets/css/layout.css">
   <link rel="stylesheet" href="assets/css/components.css">
 </head>
-<header>
-< <!-- βασική επικεφαλίδα -->
-        <div id="upper-header" style="background: var(--primary-color);">
-        </div>
-        <!-- μικρή επικεφαλίδα -->
-        <div id="site">
-            <a href="index.html">E-learning</a>
-        </div>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Αρχική</a></li>
-                    <li><a href="courses.html">Μαθήματα</a></li>  
-                    <li><a href="register.html">Εγγραφή</a></li>
-                    <li><a href="books.html">Βιβλία</a></li>
-                   <li><a href="about.html">Σχετικά</a></li>
-                    
-                </ul>
-            </nav>
-        <div id="hamburger-icon" onclick="toogleMobileMenu()">
-            <div class="bar1"></div>
-            <div class="bar2"></div>
-            <div class="bar3"></div>
-            <ul class="mobile-menu">
-                <li><a href="index.html">Αρχική</a></li>
-                <li><a href="courses.html">Μαθήματα</a></li>  
-                <li><a href="register.html">Εγγραφή</a></li>
-                <li><a href="about.html">Σχετικά</a></li>
-            </ul>
-        </div> 
-    </header>
-    <script src="assets/js/index.js"></script>
+<body>
+  <header>
+  <!-- βασική επικεφαλίδα -->
+    <div id="upper-header" style="background: var(--primary-color);">
+    </div>
+    <!-- μικρή επικεφαλίδα -->
+    <div id="site">
+        <a href="index.html">E-learning</a>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Αρχική</a></li>
+        <li><a href="courses.html">Μαθήματα</a></li>  
+        <li><a href="register.html">Εγγραφή</a></li>
+        <li><a href="books.html">Βιβλία</a></li>
+        <li><a href="about.html">Σχετικά</a></li>        
+      </ul>
+      </nav>
+      <div id="hamburger-icon" onclick="toogleMobileMenu()">
+          <div class="bar1"></div>
+          <div class="bar2"></div>
+          <div class="bar3"></div>
+          <ul class="mobile-menu">
+            <li><a href="index.html">Αρχική</a></li>
+            <li><a href="courses.html">Μαθήματα</a></li>  
+            <li><a href="register.html">Εγγραφή</a></li>
+            <li><a href="about.html">Σχετικά</a></li>
+          </ul>
+      </div> 
+  </header>
 
-  <main class="page-grid">
-    <section class="about-title">
-      <h1>ΣΧΕΤΙΚΑ</h1>
-      <h1>ΜΕ ΜΑΣ</h1>
-    </section>
-
-    <section class="about-content">
-      <p>Η πλάτφόρμα μας έχει στόχο να προσφέρει ένα ενιαίο περιβάλλον 
+  <main>
+    <section class="about-title-paragraph">
+      <div class="about-sxetika">
+        <h1>ΣΧΕΤΙΚΑ<br>ΜΕ ΜΑΣ</h1>
+      </div>
+      <div class="about-paragrafos">
+        <p>Η πλάτφόρμα μας έχει στόχο να προσφέρει ένα ενιαίο περιβάλλον 
         ηλεκτρονικής μάθησης ειδικά σχεδιασμένο για φοιτητές και όσους
-        θέλουν να ασχοληθούν με τον χώρο την Πληροφορικής! </p>
-    </section>  
+        θέλουν να ασχοληθούν με τον χώρο την Πληροφορικής!</p>
+      </div>
+    </section>
 
     <section class="about-team">
-      <h2>Η ομάδα μας:</h2>
+      <h2>Η ΟΜΑΔΑ ΜΑΣ</h2>
+      <div class="team-pics">
+        <div class="team-card">
+          <img src="assets/img/teamg.jpg" alt="Γιώργος">
+          <p class="parg">Γεώργιος Παπαθεοδώρου,<br> Α.Μ: 3220152</p>
+        </div>
+        <div class="team-card">
+          <img src="assets/img/teamo.jpg" alt="Ορέστης">
+          <p class="paro">Ορέστης Νικολάου,<br> Α.Μ: 3220139</p>
+        </div>
+
+      </div>
     </section>
-    
-    <section class="team-card1">
-      <section class="about-image">
-        <img src="assets/img/teamg.jpg" alt="Giwrgos">
-      </section> 
-      <section class="about-image-g">
-        <p>Γεώργιος Παπαθεοδώρου, Α.Μ: 3220152</p>
-      </section>
-    </section>    
-    
-    <section class="team-card2">
-      <section class="about-image">
-        <img src="assets/img/teamo.jpg" alt="Oresths">
-      </section> 
-      <section class="about-image-o">
-        <p>Ορέστης Νικολάου, Α.Μ: 3220139</p>
-      </section>
-    </section>  
   </main>
 
   <footer>
     <p style="all : unset">© 2023 Η ομάδα μας. Όλα τα δικαιώματα διατηρούνται.</p>
   </footer>
+  <script src="assets/js/index.js"></script>
+
 </body>
 </html>
 

@@ -41,8 +41,39 @@
             </ul>
         </div> 
     </header>
-    <script src="assets/js/index.js"></script>
+    <main class="register-form">
+    <form autocomplete="off" class="form" id="register-form">
+        <p class="title">Κάνε εγγραφή στην πλατφόρμα μας τώρα!</p>
+        <div id="register-errors" aria-live="polite"></div>
+        <div class="forms">
+            <label>
+                <input type="text" id="firstname" name="firstname" placeholder="Όνομα" required>
+            </label>
+            <label>
+                <input type="text" id="lastname" name="lastname" placeholder="Επώνυμο" required>
+            </label>
+            <label>
+                <input type="text" id="username" name="username" placeholder="Username" required>
+            </label>
+            <label>
+                <input type="email" id="email" name="email" placeholder="Email" required>
+            </label>
+            <label>
+                <input type="password" id="password" name="password" placeholder="Κωδικός" required minlength="8">
+            </label>
+            <label>
+                <input type="password" id="passwordCon"  name="passwordCon" placeholder="Επιβεβαίωση Κωδικού" required>
+            </label>
+            <button type="submit">Εγγραφή</button>
+        </div>
+        <section id="register-summary" hidden></section>
+    </form>
+    </main>
+
+    <script src="assets/js/register.js"></script>
 <footer>
     <p style="all : unset">© 2023 Η ομάδα μας. Όλα τα δικαιώματα διατηρούνται.</p>
 </footer>
 </html>
+
+
