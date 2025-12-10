@@ -1,9 +1,9 @@
-/*δημιουργία λίστας μαθημάτων με τις ιδιότητες τους*/
+/*δημιουργία λίστας μαθημάτων*/
 const courses = [
 {
     id:1,
     title:"Εισαγωγή στην Πληροφορική",
-    category:"general knowledge",
+    category:"General Knowledge",
     img:" ",
     description:"Εισαγωγή στις βασικές έννοιες της πληροφορικής και των υπολογιστικών συστημάτων.",
 },
@@ -59,14 +59,14 @@ const courses = [
 {
     id:9,
     title:"Τεχνητή Νοημοσύνη",
-    category:"artificial intelligence",
+    category:"Artificial Intelligence",
     img:" ", 
     description:"Εισαγωγή στις βασικές έννοιες και τεχνικές της τεχνητής νοημοσύνης, συμπεριλαμβανομένης της αναζήτησης, της λογικής και της μάθησης.",
 },
 {
     id:10,
     title:"Μηχανική Μάθηση",
-    category:"artificial intelligence",
+    category:"Artificial Intelligence",
     img:" ",
     description:"Μελέτη των αλγορίθμων και τεχνικών που επιτρέπουν στους υπολογιστές να μαθαίνουν από δεδομένα και να βελτιώνουν την απόδοσή τους σε συγκεκριμένα καθήκοντα.",
 },
@@ -94,7 +94,7 @@ const courses = [
 {
     id:14,
     title:"Ανάλυση Δεδομένων",
-    category:"Data-management",
+    category:"Data-Management",
     img:" ",
     description:"Μελέτη των τεχνικών και εργαλείων για την ανάλυση δεδομένων και την εξαγωγή χρήσιμων πληροφοριών από μεγάλα σύνολα δεδομένων.",
 },
@@ -106,7 +106,7 @@ const courses = [
 },
 {   id:16,
     title:" Συστήματα Διαχείρισης και Ανάλυσης Δεδομένων",
-    category:"Data management",
+    category:"Data-Management",
     img:" ",
     description:"Μελέτη των συστημάτων και τεχνικών για τη διαχείριση και ανάλυση μεγάλων συνόλων δεδομένων.",
 },
@@ -118,13 +118,13 @@ const courses = [
 },
 {   id:18,
     title:"Συστήματα Ανάκτησης Πληροφοριών",
-    category:"Data management",
+    category:"Data-Management",
     img:" ",
     description:" Μελέτη των τεχνικών και εργαλείων για την ανάκτηση και διαχείριση πληροφοριών από μεγάλα σύνολα δεδομένων.",
 },
 {   id:19,
     title:" Μέθοδοι Στατιστικής και Μηχανικής Μάθησης (ΣΤΑ)",
-    category:"artificial intelligence",
+    category:"Artificial Intelligence",
     img:" ",
     description:"Μελέτη των στατιστικών μεθόδων και τεχνικών μηχανικής μάθησης για την ανάλυση δεδομένων και την εξαγωγή χρήσιμων πληροφοριών.",
 },
@@ -141,37 +141,85 @@ function createCourseCard(course) {
     const li = document.createElement('li');
     li.innerHTML = `
         <h2>${course.title}</h2>
-        <p><strong>Κατηγορία:</strong> ${course.category}</p>
+        <p><strong>Κατηγορία:</strong> <span class="category-text">${course.category}</span></p>
         <h3>Περιγραφή Μαθήματος:</h3>
         <p>${course.description}</p>
     `;
     return li; 
 }
 
-const list = document.getElementById("ulid");       
-courses.forEach(course => {
-    const card = createCourseCard(course);
-    list.appendChild(card);
-});
+const list = document.getElementById("ulid");
+const searchInput = document.getElementById("searchInput");
+const categorySelect = document.getElementById("categorySelect");
+const sortSelect = document.getElementById("sortSelect");
 
+//Δείξε ολα τα μαθήματα αρχικά
+function displayInitialCourses() {
+    courses.forEach(course => {
+        const card = createCourseCard(course);
+        list.appendChild(card);
+    });
+}
 
+displayInitialCourses();
 
+/* --- Συνδυασμένη Λειτουργία Ταξινόμησης, Φιλτραρίσματος & Αναζήτησης --- */
 
-function searchCourses() {
-    var input, filter, ul, a, i, txtValue;
-    input = document.getElementById('searchInput');
-    filter =input.value.toUpperCase();
-    ul=document.getElementById(ulid)
-    
-    for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
+function updateCourses() {
+    //  Αντίγραφο με όλα τα μαθήματα του αρχικού πίνακα
+    let results = [...courses];
+
+    // Αναζήτηση
+    if (searchInput && searchInput.value.trim() !== '') {
+        const searchTerm = searchInput.value.toLowerCase();
+        results = results.filter(course => 
+            course.title.toLowerCase().includes(searchTerm) ||
+            course.description.toLowerCase().includes(searchTerm)
+        );
     }
-  }
 
+    // Filtering
+    if (categorySelect && categorySelect.value !== 'all') {
+        const selectedCategory = categorySelect.value;
+        results = results.filter(course => course.category === selectedCategory);
+    }
+
+    // Sorting
+    if (sortSelect && sortSelect.value !== 'none') {
+        const selectedSort = sortSelect.value;
+
+        if (selectedSort === 'asc') {
+            // (Α-Ω)
+            results.sort((a, b) => a.title.localeCompare(b.title, 'el'));
+        } else if (selectedSort === 'desc') {
+            // (Ω-Α)
+            results.sort((a, b) => b.title.localeCompare(a.title, 'el'));
+        }
+    }
+
+    //  εμφάνιση
+    list.innerHTML = ""; // Καθαρίζουμε την παλιά λίστα
+    
+    if (results.length === 0) {
+        list.innerHTML = "<li style='grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--primary-color);'><p>Δεν βρέθηκαν μαθήματα.</p></li>";
+    } else {
+        results.forEach(course => {
+            const card = createCourseCard(course);
+            list.appendChild(card);
+        });
+    }
+}
+
+// Προσθέτουμε τους Event Listeners
+if (searchInput) {
+    searchInput.addEventListener('input', updateCourses);
+}
+
+if (sortSelect) {
+    sortSelect.addEventListener('change', updateCourses);
+}
+
+if (categorySelect) {
+    categorySelect.addEventListener('change', updateCourses);
 }
 

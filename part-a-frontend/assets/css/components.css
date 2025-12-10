@@ -104,9 +104,6 @@ transform: scale(1.1);
 transition: 0.3s;
  }
 /* ================================ */
-/* ========== ul styles ========== */
-
- /* ================================ */
  /* ========== courses ========== */
 .Course-h1{
     font-size: 2.5rem;
@@ -132,12 +129,13 @@ transition: 0.3s;
     list-style-type: none;
     transition: background-color 0.3s, transform 0.3s;
     font-size: 1rem;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 .course-card li:hover {
-    background-color: #f0f0f0;
+    background-color: #040000;
     transform: translateY(-10px);
+    color:#531252;
 }
 
 .course-card li h2 {
@@ -155,10 +153,12 @@ transition: 0.3s;
     font-size: 0.95rem;
     text-align: left;
     font-family: var(--font-family);
+    color: var(--primary-color);
 }
-#course-card li a:hover:not(.header) {
-  background-color: #eee;
-}
+
+
+
+
 .search-bar-course{
     text-align: center;
     margin: 20px 0;
@@ -174,13 +174,14 @@ transition: 0.3s;
     box-sizing: border-box;
     font-family: var(--font-family);
 }
-
+/*book page*/
+.books-card{
+    display: grid;
+    align-items: center;
+}
 
 /* REGISTER PAGE */
 
-<<<<<<< HEAD
-.register-form p.title {
-=======
     
 
     
@@ -209,7 +210,6 @@ title {
 p {
     padding: 20px;
     border-radius: 12px;
->>>>>>> 3abc7f03232abb2b038277307f1abf1fc0fb7f73
     font-size: 1.2rem;
     font-weight: 700;
     background-color: var(--primary-color);
@@ -475,7 +475,6 @@ p {
         gap: 15px;
     }
 }
-
 
 
 
