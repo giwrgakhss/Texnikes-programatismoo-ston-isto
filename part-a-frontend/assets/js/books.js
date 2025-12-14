@@ -6,6 +6,7 @@ const books = [
         author: "J. Glenn Brookshear",
         image: "assets/img/cs_overview.jpg", 
         courseId: 1,
+        category: "General Knowledge",
         
     },
     // 2. Προγραμματισμός Ι (Python)
@@ -15,6 +16,7 @@ const books = [
         author: "Eric Matthes",
         image: "assets/img/python_crash.jpg",
         courseId: 2,
+        category: "Programming",
     },
     // 3. Προγραμματισμός ΙΙ (Advanced)
     {
@@ -23,6 +25,7 @@ const books = [
         author: "Robert C. Martin",
         image: "assets/img/clean_code.jpg",
         courseId: 3,
+        category: "Programming",
     },
     // 4. Βάσεις Δεδομένων
     {
@@ -31,6 +34,7 @@ const books = [
         author: "Abraham Silberschatz",
         image: "assets/img/db_concepts.jpg",
         courseId: 4,
+        category: "Databases",
         
     },
     // 5. Δομές Δεδομένων και Αλγόριθμοι
@@ -40,6 +44,7 @@ const books = [
         author: "Thomas H. Cormen",
         image: "assets/img/algorithms.jpg",
         courseId: 5,
+        category: "Programming",
     },
     // 6. Ανάλυση και Σχεδίαση Συστημάτων
     {
@@ -48,6 +53,7 @@ const books = [
         author: "Kendall & Kendall",
         image: "assets/img/system_analysis.jpg",
         courseId: 6,
+        category: "Programming",
     },
     // 7. Δίκτυα Υπολογιστών
     {
@@ -56,6 +62,7 @@ const books = [
         author: "James Kurose",
         image: "assets/img/networks.jpg",
         courseId: 7,
+        category: "Networks",
         
     },
     // 8. Ασφάλεια Πληροφοριών
@@ -65,6 +72,7 @@ const books = [
         author: "Charles P. Pfleeger",
         image: "assets/img/security.jpg",
         courseId: 8,
+        category: "Security",
         
     },
     // 9. Τεχνητή Νοημοσύνη
@@ -74,6 +82,7 @@ const books = [
         author: "Stuart Russell & Peter Norvig",
         image: "assets/img/ai_modern.jpg",
         courseId: 9,
+        category: "AI",
         
     },
     // 10. Μηχανική Μάθηση
@@ -83,6 +92,7 @@ const books = [
         author: "Aurélien Géron",
         image: "assets/img/ml_hands_on.jpg",
         courseId: 10,
+        category: "AI",
        
     },
     // 11. Ανάπτυξη Εφαρμογών Ιστού
@@ -92,6 +102,7 @@ const books = [
         author: "Jon Duckett",
         image: "assets/img/web_duckett.jpg",
         courseId: 11,
+        category: "Programming",
     },
     // 12. Κινητές Εφαρμογές
     {
@@ -100,6 +111,7 @@ const books = [
         author: "Bill Phillips",
         image: "assets/img/android.jpg",
         courseId: 12,
+        category: "Programming",
 
     },
     // 13. Υπολογιστική Νέφη
@@ -109,6 +121,7 @@ const books = [
         author: "Thomas Erl",
         image: "assets/img/cloud.jpg",
         courseId: 13,
+        category: "Programming",
        
     },
     // 14. Ανάλυση Δεδομένων
@@ -118,6 +131,7 @@ const books = [
         author: "Wes McKinney",
         image: "assets/img/data_analysis.jpg",
         courseId: 14,
+        category: "Programming",
       
     },
     // 15. Σήματα και Συστήματα
@@ -127,6 +141,7 @@ const books = [
         author: "Alan V. Oppenheim",
         image: "assets/img/signals.jpg",
         courseId: 15,
+        category: "Networks",
         
     },
     // 16. Διαχείριση Μεγάλων Δεδομένων
@@ -136,6 +151,7 @@ const books = [
         author: "Martin Kleppmann",
         image: "assets/img/data_intensive.jpg",
         courseId: 16,
+        category: "Databases",
     },
     // 17. Ασφάλεια Δικτύων
     {
@@ -144,6 +160,7 @@ const books = [
         author: "William Stallings",
         image: "assets/img/net_security.jpg",
         courseId: 17,
+        category: "Security",
        
     },
     // 18. Ανάκτηση Πληροφοριών
@@ -153,6 +170,7 @@ const books = [
         author: "Christopher D. Manning",
         image: "assets/img/ir_book.jpg",
         courseId: 18,
+        category: "Databases",
        
     },
     // 19. Στατιστική & Μηχανική Μάθηση
@@ -162,6 +180,7 @@ const books = [
         author: "Gareth James",
         image: "assets/img/stat_learning.jpg",
         courseId: 19,
+        category: "AI",
        
     },
     // 20. Ανάλυση Επίδοσης
@@ -171,23 +190,68 @@ const books = [
         author: "Raj Jain",
         image: "assets/img/performance.jpg",
         courseId: 20,
+        category: "Networks",
         
     }
 ];
+//ftiaxnei koutaki vivliou
 function createBook(book){
     const li = document.createElement('li');
     li.innerHTML = `
         <h2>${book.title}</h2>
-        <p>Συγγραφέας: ${book.author}</p>
-        `;
+        <p><strong>Συγγραφέας:</strong> ${book.author}</p>
+        <p><strong>Κατηγορία:</strong> <span class="category-text">${book.category}</span></p>
+    `;
     return li;
 }
-const list = document.getElementById("book-list");
 
-function displayBooks() {
+const list = document.getElementById("book-list");
+const searchInputBooks = document.getElementById("searchInputBooks");
+const categorySelectBooks = document.getElementById("categorySelectBooks");
+const sortSelectBooks = document.getElementById("sortSelectBooks");
+
+//emfanisei toy arxikoy pinaka me vivlia
+function displayInitialBooks() {
+    list.innerHTML = "";
     books.forEach(book => {
         const bookCard = createBook(book);
         list.appendChild(bookCard);
     });
 }
-displayBooks();
+
+displayInitialBooks();
+//analoga to filtro taksinomisi anazitisi emfanizei ta vivlia
+function updateBooks() {
+    let results = [...books];
+
+    if (searchInputBooks && searchInputBooks.value.trim() !== '') {
+        const term = searchInputBooks.value.toLowerCase();
+        results = results.filter(b => b.title.toLowerCase().includes(term) || (b.author && b.author.toLowerCase().includes(term)));
+    }
+
+    if (categorySelectBooks && categorySelectBooks.value !== 'all') {
+        results = results.filter(b => b.category === categorySelectBooks.value);
+    }
+
+    if (sortSelectBooks && sortSelectBooks.value !== 'none') {
+        if (sortSelectBooks.value === 'asc') {
+            results.sort((a,b) => a.title.localeCompare(b.title, 'el'));
+        } else if (sortSelectBooks.value === 'desc') {
+            results.sort((a,b) => b.title.localeCompare(a.title, 'el'));
+        }
+    }
+
+    list.innerHTML = "";
+    if (results.length === 0) {
+        list.innerHTML = "<li style='grid-column:1/-1; text-align:center; padding:40px; color:var(--primary-color)'>Δεν βρέθηκαν βιβλία.</li>";
+        return;
+    }
+    results.forEach(book => {
+        const card = createBook(book);
+        list.appendChild(card);
+    });
+}
+
+if (searchInputBooks) searchInputBooks.addEventListener('input', updateBooks);
+if (categorySelectBooks) categorySelectBooks.addEventListener('change', updateBooks);
+if (sortSelectBooks) sortSelectBooks.addEventListener('change', updateBooks);

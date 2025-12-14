@@ -177,7 +177,21 @@ transition: 0.3s;
 /*book page*/
 .books-card{
     display: grid;
-    align-items: center;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    font-family: var(--font-family);
+    max-width: 100%;
+}
+.book-card li {
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 20px;
+    list-style-type: none;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1rem;
+    background-color: #ffffff;
 }
 
 /* REGISTER PAGE */

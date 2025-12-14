@@ -19,6 +19,7 @@
         <div id="site">
             <a href="index.html">E-learning</a>
         </div>
+            <!--navbar klasik-->
             <nav>
                 <ul>
                     <li><a href="index.html">Αρχική</a></li>
@@ -29,6 +30,7 @@
                     
                 </ul>
             </nav>
+            <!--navbar mobile-->
         <div id="hamburger-icon" onclick="toogleMobileMenu()">
             <div class="bar1"></div>
             <div class="bar2"></div>
@@ -40,12 +42,40 @@
                 <li><a href="about.html">Σχετικά</a></li>
             </ul>
         </div> 
-        <div class="list-of-books">
-            <H1 class="book-h1"> Λίστα Βιβλίων</H1>
-            <ul class="book-card" id="book-list"> 
-        </ul>
 </div>
     </header>
+    <main>
+    <!--scearchbar-->
+    <div class="search-bar-course">
+        <input type="text" id="searchInputBooks" placeholder="Αναζήτηση βιβλίων...">
+    </div>
+    <!--drop down menu gia kathgoria-->
+    <div class="drop-down" id="sortselect-books">
+        <label for="categorySelectBooks">Φίλτρο κατά κατηγορία:</label>
+        <select id="categorySelectBooks">
+            <option value="all">Όλα</option>
+            <option value="Programming">Programming</option>
+            <option value="Networks">Networks</option>
+            <option value="Security">Security</option>
+            <option value="Databases">Databases</option>
+            <option value="AI">Artificial Intelligence</option>
+        </select>
+        <!--drop down menu gia onoma-->
+        <label for="sortSelectBooks">Ταξινόμηση κατά όνομα:</label>
+        <select id="sortSelectBooks">
+            <option value="none">Καμία</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+        </select>
+    </div>
+    <!--lista vivliwn-->
+       <div class="list-of-books">
+            <h1 class="index-title2">Λίστα Βιβλίων</h1>
+            <ul class="course-card" id="book-list"> 
+            </ul>
+        </div>
+    </main>
+    <!--scriptaia gia leitoyrgies me javascript-->
      <script src="assets/js/index.js"></script>
     <script src="assets/js/books.js"></script>
 
