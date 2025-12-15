@@ -6,19 +6,71 @@ document.addEventListener("DOMContentLoaded", () => {
   const summary = document.getElementById("register-summary");
 
   if (!form) return;
+ /*Εμφανίζει τις επιλογές και τα checkboxes*/
+  function categorybox() {
+    const categories = [...new Set(courses.map(c => c.category))]
+
+    summary.innerHTML = `
+    <h4>Η δημιουργία λογαριασμού ήταν επιτυχής!</h4>
+    <h3>Θες να σου προτείνουμε μαθήματα;</h3>
+    <p>Επέλεξε μία ή περισσότερες κατηγορίες που σε ενδιαφέρουν!</p>
+    <div id="category-options"></div>
+    <button id="show-recs" class="pref-button">Προβολή Μαθημάτων</button>
+    `;
+
+    const rightbox = document.getElementById("category-options");
+    categories.forEach(cat => {
+      const label = document.createElement("label");
+      label.innerHTML = `
+      <input type="checkbox" value = "${cat}">
+      <span>${cat}</span>
+      `;
+      rightbox.appendChild(label);
+    });
+
+    summary.hidden = false;
+    document.getElementById("show-recs").addEventListener("click", reccourses);
+  }
+  /*Εμφάνιση προτεινόμενων μαθημάτων*/
+  function reccourses() {
+    const recbox = document.getElementById("recs");
+    const checkboxes = document.querySelectorAll("#category-options input[type='checkbox']");
+    const epilegmena = [...checkboxes]
+                        .filter(cb =>cb.checked).map(cb=>cb.value);
+
+    if (epilegmena.length === 0) {recbox.hidden = true; return;}
+
+    const rcourses = courses.filter(c => epilegmena.includes(c.category));
+
+    recbox.innerHTML = `
+    <h3>Προτεινόμενα Μαθήματα:</h3>
+    <ul>
+      ${rcourses.map(c => `<li>${c.title} (${c.category})</li>`).join("")}
+    </ul>
+    <p style="margin-top: 15px; font-size: 0.9rem; color: black;">
+    Για περισσόετερες πληροφορίες μεταβείτε στη σελίδα 
+    <strong><a href="courses.html" style="color: black; text-decoration: underline;">Μαθήματα</a></strong>
+    </p>
+    `;
+
+    recbox.hidden = false;
+  }
 
   form.addEventListener("submit", (e) => {
     e.preventDefault();
 
+    /*Αν έχει γίνει η ολοκλήρωση εγγραφής*/
     if (iscon) {
-      const krypse = document.querySelector(".forms");
-      if (krypse) {
-        krypse.style.display = "none";
-      }
+     document.getElementById("kane-eggrafh").style.display = "none";
+     document.getElementById("register-form").style.display = "none";
 
       errorsBox.innerHTML = "";
+      errorsBox.style.color = "";
       summary.hidden = false;
-      summary.innerHTML = `<p>Η Δημιουργία Λογαριασμού ήταν επιτυχής!</p>`;
+      categorybox();
+
+      const prefContainer = document.getElementById("pref-container")
+      if (prefContainer) prefContainer.hidden = false;
       return;
     }
 

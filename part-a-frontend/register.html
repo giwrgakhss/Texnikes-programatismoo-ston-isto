@@ -41,11 +41,11 @@
             </ul>
         </div> 
     </header>
+
     <main class="register-form">
-    <form autocomplete="off" class="form" id="register-form">
-        <p class="title">Κάνε εγγραφή στην πλατφόρμα μας τώρα!</p>
+    <form autocomplete="off" class="panel" id="register-form">
+        <p class="title" id="kane-eggrafh">Κάνε εγγραφή στην<br> πλατφόρμα μας!</p>
         <div id="register-errors" aria-live="polite"></div>
-        <div class="forms">
             <label>
                 <input type="text" id="firstname" name="firstname" placeholder="Όνομα" required>
             </label>
@@ -65,14 +65,17 @@
                 <input type="password" id="passwordCon"  name="passwordCon" placeholder="Επιβεβαίωση Κωδικού" required>
             </label>
             <button type="submit">Εγγραφή</button>
-        </div>
-        <section id="register-summary" hidden></section>
     </form>
+    <div id="pref-container" class="pref-container" hidden>
+        <section id="register-summary" class="panel" hidden></section>
+        <section id="recs" class="panel" hidden></section>
+    </div>
     </main>
 
+    <script src="assets/js/courses.js"></script>
     <script src="assets/js/register.js"></script>
 <footer>
-    <p style="all : unset">© 2023 Η ομάδα μας. Όλα τα δικαιώματα διατηρούνται.</p>
+    <p style="all : unset">© 2025 Η ομάδα μας. Όλα τα δικαιώματα διατηρούνται.</p>
 </footer>
 </html>
 

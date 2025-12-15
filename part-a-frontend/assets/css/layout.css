@@ -19,59 +19,6 @@
         align-items: center;
         grid-template-rows: auto auto;
     }
-
-    /*.about-title {
-        grid-column: 1;
-        grid-row: 1;
-        text-align: left;
-        align-self: center;
-        margin-left: 15px;
-    }
-
-    .about-content {
-        grid-column: 2;
-        grid-row: 1;
-        font-size: 1.2rem;
-        text-align: right;
-        align-self: center;
-        margin-right: 15px;
-    }
-
-    .team-card1 {
-        grid-column: 1;
-        margin-top: 20px;
-    }
-
-    .team-card2 {
-        grid-column: 2;
-        margin-top: 20px;
-    }
-
-    .team-card1, .team-card2 {
-        width: 100%;
-        max-width: 360px;
-        margin: 0 auto;
-        grid-row: 3;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        border-radius: 20px;
-    }
-
-    .about-image-g p,.about-image-o p {
-      width: 100%;
-      max-width: 360px;
-      border-radius: 0 0 20px 20px;
-      display: flex;
-      justify-content: center;
-    }
-
-    .about-team {
-        text-align: center;
-        grid-column: 1 / span 2;
-        grid-row: 2;
-        margin-bottom: 10px;
-    }*/
 }
 
 /* DESKTOP - 3 STHLES */
@@ -81,48 +28,6 @@
         gap: 40px;
         align-items: start;
     }
-
-    /*.about-title {
-        grid-column: 1/ span 1;
-        grid-row: 1;
-        text-align: left;
-        margin-left: 10px;
-    }
-
-    .about-content {
-        grid-column: 3 / span 1;
-        grid-row: 1;
-        text-align: right;
-        max-width: 90%;
-    }
-
-    .about-team {
-        grid-column: 1 / span 3;
-        grid-row: 2;
-        text-align: center;
-    }
-
-    .team-card1 {
-        grid-column: 1;
-        grid-row: 3;
-        justify-self: center;
-    }
-
-    .team-card2 {
-        grid-column: 3;
-        grid-row: 3;
-        justify-content: center;
-    }
-
-    .team-card1, .team-card2 {
-        width: 100%;
-        max-width: 100%;
-        margin: 0 auto;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-        border-radius: 20px;
-    }*/
 }
 /* Οταν το max width είναι 600px το navigation κρυβεται και εμφανιζεται το hamburger icon */
 @media only screen and (max-width: 600px) {
