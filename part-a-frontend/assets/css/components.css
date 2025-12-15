@@ -104,9 +104,6 @@ transform: scale(1.1);
 transition: 0.3s;
  }
 /* ================================ */
-/* ========== ul styles ========== */
-
- /* ================================ */
  /* ========== courses ========== */
 .Course-h1{
     font-size: 2.5rem;
@@ -132,12 +129,13 @@ transition: 0.3s;
     list-style-type: none;
     transition: background-color 0.3s, transform 0.3s;
     font-size: 1rem;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
 }
 
 .course-card li:hover {
-    background-color: #f0f0f0;
+    background-color: #040000;
     transform: translateY(-10px);
+    color:#531252;
 }
 
 .course-card li h2 {
@@ -155,10 +153,12 @@ transition: 0.3s;
     font-size: 0.95rem;
     text-align: left;
     font-family: var(--font-family);
+    color: var(--primary-color);
 }
-#course-card li a:hover:not(.header) {
-  background-color: #eee;
-}
+
+
+
+
 .search-bar-course{
     text-align: center;
     margin: 20px 0;
@@ -174,7 +174,25 @@ transition: 0.3s;
     box-sizing: border-box;
     font-family: var(--font-family);
 }
-
+/*book page*/
+.books-card{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    margin: 20px auto;
+    font-family: var(--font-family);
+    max-width: 100%;
+}
+.book-card li {
+    border: 1px solid var(--primary-color);
+    border-radius: 8px;
+    padding: 20px;
+    list-style-type: none;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 1rem;
+    background-color: #ffffff;
+}
 
 /* REGISTER PAGE */
 
@@ -664,7 +682,6 @@ transition: 0.3s;
         padding: 40px 25px;
     }
 }
-
 
 
 

@@ -1,4 +1,4 @@
-/*δημιουργία λίστας μαθημάτων με τις ιδιότητες τους*/
+/*δημιουργία λίστας μαθημάτων*/
 const courses = [
 {
     id:1,
@@ -159,7 +159,7 @@ function createCourseCard(course) {
     const li = document.createElement('li');
     li.innerHTML = `
         <h2>${course.title}</h2>
-        <p><strong>Κατηγορία:</strong> ${course.category}</p>
+        <p><strong>Κατηγορία:</strong> <span class="category-text">${course.category}</span></p>
         <h3>Περιγραφή Μαθήματος:</h3>
         <p>${course.description}</p>
     `;
@@ -202,6 +202,79 @@ function searchCourses() {
       li[i].style.display = "none";
     }
   }
+}
+const list = document.getElementById("ulid");
+const searchInput = document.getElementById("searchInput");
+const categorySelect = document.getElementById("categorySelect");
+const sortSelect = document.getElementById("sortSelect");
 
+//Δείξε ολα τα μαθήματα αρχικά
+function displayInitialCourses() {
+    courses.forEach(course => {
+        const card = createCourseCard(course);
+        list.appendChild(card);
+    });
+}
+
+displayInitialCourses();
+
+//Φιλτράρισμα Ταξινόμηση Αναζήτηση
+
+function updateCourses() {
+    //  Αντίγραφο με όλα τα μαθήματα του αρχικού πίνακα
+    let results = [...courses];
+
+    // Αναζήτηση
+    if (searchInput && searchInput.value.trim() !== '') {
+        const searchTerm = searchInput.value.toLowerCase();
+        results = results.filter(course => 
+            course.title.toLowerCase().includes(searchTerm) ||
+            course.description.toLowerCase().includes(searchTerm)
+        );
+    }
+
+    // Filtering
+    if (categorySelect && categorySelect.value !== 'all') {
+        const selectedCategory = categorySelect.value;
+        results = results.filter(course => course.category === selectedCategory);
+    }
+
+    // Sorting
+    if (sortSelect && sortSelect.value !== 'none') {
+        const selectedSort = sortSelect.value;
+
+        if (selectedSort === 'asc') {
+            // (Α-Ω)
+            results.sort((a, b) => a.title.localeCompare(b.title, 'el'));
+        } else if (selectedSort === 'desc') {
+            // (Ω-Α)
+            results.sort((a, b) => b.title.localeCompare(a.title, 'el'));
+        }
+    }
+
+    //  εμφάνιση
+    list.innerHTML = ""; // Καθαρίζουμε την παλιά λίστα
+    
+    if (results.length === 0) {
+        list.innerHTML = "<li style='grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--primary-color);'><p>Δεν βρέθηκαν μαθήματα.</p></li>";
+    } else {
+        results.forEach(course => {
+            const card = createCourseCard(course);
+            list.appendChild(card);
+        });
+    }
+}
+
+// Προσθέτουμε τους Event Listeners
+if (searchInput) {
+    searchInput.addEventListener('input', updateCourses);
+}
+
+if (sortSelect) {
+    sortSelect.addEventListener('change', updateCourses);
+}
+
+if (categorySelect) {
+    categorySelect.addEventListener('change', updateCourses);
 }
 
