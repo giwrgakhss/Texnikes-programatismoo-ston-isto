@@ -137,6 +137,7 @@ const courses = [
 ];
 
 const ul = document.getElementById("ulid");
+
 courses.forEach(course => {
     const li = document.createElement("li");
 
@@ -151,6 +152,7 @@ courses.forEach(course => {
     })
     ul.appendChild(li);
 });
+
 
 
 /*εμφάνιση λίστας μαθημάτων στην ιστοσελίδα*/

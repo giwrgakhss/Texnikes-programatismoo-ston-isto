@@ -1,4 +1,3 @@
-
 /* ========== NAVBAR ========== */
 #site{
     font-weight: bold;
@@ -231,7 +230,7 @@ transition: 0.3s;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 20px;
+    gap: 10px;
     max-width: 380px;
     background: #ffffff;
     padding: 30px;
@@ -430,12 +429,14 @@ transition: 0.3s;
     padding: 40px;
     border-radius: 30px;
     max-width: 380px;
+    transform: translateX(-20%);
 }
 
 .about-paragrafos p {
     color: white;
     font-size: 1.2rem;
     line-height: 1.5;
+    
 }
 
 .about-team {
@@ -570,7 +571,14 @@ transition: 0.3s;
     margin: 20px 0;
     border-radius: 15px;
     float: right;
+}
 
+.about-content p {
+    background: var(--primary-color);
+    font: var(--font-family);
+    padding: 40px;
+    border-radius: 30px;
+    width: 100%;
 }
 /*=============MEDIA QUERIES================= */
 @media only screen and (max-width: 600px) {
@@ -664,6 +672,11 @@ transition: 0.3s;
     margin-bottom: 40px;
 }
 
+#cd-book-cover {
+    width: 180px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
 @media (max-width: 900px) {
     .course-details {
         grid-template-columns: 1fr;
@@ -682,82 +695,3 @@ transition: 0.3s;
         padding: 40px 25px;
     }
 }
-
-
-
-
-
-
-
-
-/*
-.about-page h1 {
-    font-size: 70px;
-    font-weight: 700;
-    text-align: left;
-    margin-left: 0;
-    margin-top: 0;
-    margin-bottom: 0;
-    line-height: 0.9;
-}
-
-.about-stacked {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.1rem;
-    margin-top: 10px;
-    margin-left: 0px;
-}
-
-.about-mobile {
-    display: block;
-}
-
-.about-others {
-    display: none;
-}
-
-.about-content {
-    flex: 1 1 58%;
-    max-width: 58%;
-    align-self: flex-start;
-    text-align: center;
-    align-self: center;
-}
-
-@media (min-width: 600px) {
-    .about-mobile {
-        display: none;
-    }
-
-    .about-others {
-        display: block;
-    }
-
-    .about-page .page-grid {
-        grid-template-columns: 40% 60%;
-        align-items: center;
-    }
-
-    .about-stacked {
-        justify-content: center;
-        padding-right: 1rem;
-    }
-
-    .about-content {
-        text-align: left;
-        flex: initial;
-        max-width: 100%;
-        align-self: center;
-    }
-
-}
-
-@media (min-width: 900px) {
-    .about-page .page-grid {
-        grid-template-columns: 35% 65%;
-    }
-}
-*/
-
