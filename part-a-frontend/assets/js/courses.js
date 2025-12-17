@@ -135,30 +135,17 @@ const courses = [
     description:"Μελέτη των τεχνικών και εργαλείων για την ανάλυση της απόδοσης πολύπλοκων δικτυωμένων συστημάτων.",
 }
 ];
+//Const gia stoixeia selidas
+const list = document.getElementById("ulid");
+const searchInput = document.getElementById("searchInput");
+const categorySelect = document.getElementById("categorySelect");
+const sortSelect = document.getElementById("sortSelect");
 
-const ul = document.getElementById("ulid");
-
-courses.forEach(course => {
-    const li = document.createElement("li");
-
-    li.innerHTML = `
-    <h2>${course.title}</h2>
-    <p>${course.description}</p>
-    `;
-
-    li.style.cursor = "pointer";
-    li.addEventListener("click", () => {
-        window.location.href = `course-details.html?id=${course.id}`;
-    })
-    ul.appendChild(li);
-});
-
-
-
-/*εμφάνιση λίστας μαθημάτων στην ιστοσελίδα*/
+//εμφάνιση λίστας μαθημάτων στην ιστοσελίδα
 
 function createCourseCard(course) {
     const li = document.createElement('li');
+    //Δημιουργια περιεχομένου κάρτας μαθήματος
     li.innerHTML = `
         <h2>${course.title}</h2>
         <p><strong>Κατηγορία:</strong> <span class="category-text">${course.category}</span></p>
@@ -167,66 +154,32 @@ function createCourseCard(course) {
     `;
 
     li.style.cursor = "pointer";
+    //event listener για να πηγαίνει στη σελίδα με τις λεπτομέρειες του μαθήματος
     li.addEventListener("click", () => {
         window.location.href = `course-details.html?id=${course.id}`;
     });
     return li; 
 }
 
-/*Αλλαγή για να φορτώσω τα courses και στο register*/
-function CoursesList() { 
-    const list = document.getElementById("ulid"); 
+//Αλλαγή για να φορτώσω τα courses και στο register
+function CoursesList() {  
     if (!list) return;  
-    list.innerHTML = "";    
+    list.innerHTML = "";
+    //εμφάνιση μαθημάτων    
     courses.forEach(course => {
         const card = createCourseCard(course);
         list.appendChild(card);
     });
 }
-
 CoursesList();
 
-
-
-
-function searchCourses() {
-    var input, filter, ul, a, i, txtValue;
-    input = document.getElementById('searchInput');
-    filter =input.value.toUpperCase();
-    ul=document.getElementById(ulid)
-    
-    for (i = 0; i < li.length; i++) {
-    a = li[i].getElementsByTagName("a")[0];
-    txtValue = a.textContent || a.innerText;
-    if (txtValue.toUpperCase().indexOf(filter) > -1) {
-      li[i].style.display = "";
-    } else {
-      li[i].style.display = "none";
-    }
-  }
-}
-const list = document.getElementById("ulid");
-const searchInput = document.getElementById("searchInput");
-const categorySelect = document.getElementById("categorySelect");
-const sortSelect = document.getElementById("sortSelect");
-
-//Δείξε ολα τα μαθήματα αρχικά
-function displayInitialCourses() {
-    courses.forEach(course => {
-        const card = createCourseCard(course);
-        list.appendChild(card);
-    });
-}
-
-displayInitialCourses();
-
-//Φιλτράρισμα Ταξινόμηση Αναζήτηση
+//Φιλτράρισμα ταξινόμηση αναζήτηση
 
 function updateCourses() {
-    //  Αντίγραφο με όλα τα μαθήματα του αρχικού πίνακα
+    //  αντίγραφο με όλα τα μαθήματα του αρχικού πίνακα
     let results = [...courses];
 
-    // Αναζήτηση
+    //Αναζήτηση
     if (searchInput && searchInput.value.trim() !== '') {
         const searchTerm = searchInput.value.toLowerCase();
         results = results.filter(course => 
@@ -234,14 +187,22 @@ function updateCourses() {
             course.description.toLowerCase().includes(searchTerm)
         );
     }
+    //Event listener Για αναζήτηση
+    if (searchInput) {
+    searchInput.addEventListener('input', updateCourses);
+}
 
-    // Filtering
+    // φιλρτάρισμα
     if (categorySelect && categorySelect.value !== 'all') {
         const selectedCategory = categorySelect.value;
         results = results.filter(course => course.category === selectedCategory);
     }
+    //Event listener Για φιλτράρισμα
+    if (categorySelect) {
+    categorySelect.addEventListener('change', updateCourses);
+}
 
-    // Sorting
+    //Sorting
     if (sortSelect && sortSelect.value !== 'none') {
         const selectedSort = sortSelect.value;
 
@@ -253,13 +214,17 @@ function updateCourses() {
             results.sort((a, b) => b.title.localeCompare(a.title, 'el'));
         }
     }
+    //Event listener Για ταξινόμηση
+    if (sortSelect) {
+    sortSelect.addEventListener('change', updateCourses);
+}
 
-    //  εμφάνιση
+//εμφάνιση αφού έχουμε φιλτράρει η ταξινομίσει 
     list.innerHTML = ""; // Καθαρίζουμε την παλιά λίστα
     
-    if (results.length === 0) {
+    if (results.length === 0) {//έλεγχος αν δεν υπάρχει αποτέλεσμα
         list.innerHTML = "<li style='grid-column: 1 / -1; text-align: center; padding: 40px; color: var(--primary-color);'><p>Δεν βρέθηκαν μαθήματα.</p></li>";
-    } else {
+    } else {//εμφάνιση καινούργιας λίστας
         results.forEach(course => {
             const card = createCourseCard(course);
             list.appendChild(card);
@@ -267,16 +232,9 @@ function updateCourses() {
     }
 }
 
-// Προσθέτουμε τους Event Listeners
-if (searchInput) {
-    searchInput.addEventListener('input', updateCourses);
-}
 
-if (sortSelect) {
-    sortSelect.addEventListener('change', updateCourses);
-}
 
-if (categorySelect) {
-    categorySelect.addEventListener('change', updateCourses);
-}
+
+
+
 
