@@ -187,20 +187,14 @@ function updateCourses() {
             course.description.toLowerCase().includes(searchTerm)
         );
     }
-    //Event listener Για αναζήτηση
-    if (searchInput) {
-    searchInput.addEventListener('input', updateCourses);
-}
+    
 
     // φιλρτάρισμα
     if (categorySelect && categorySelect.value !== 'all') {
         const selectedCategory = categorySelect.value;
         results = results.filter(course => course.category === selectedCategory);
     }
-    //Event listener Για φιλτράρισμα
-    if (categorySelect) {
-    categorySelect.addEventListener('change', updateCourses);
-}
+    
 
     //Sorting
     if (sortSelect && sortSelect.value !== 'none') {
@@ -214,10 +208,7 @@ function updateCourses() {
             results.sort((a, b) => b.title.localeCompare(a.title, 'el'));
         }
     }
-    //Event listener Για ταξινόμηση
-    if (sortSelect) {
-    sortSelect.addEventListener('change', updateCourses);
-}
+   
 
 //εμφάνιση αφού έχουμε φιλτράρει η ταξινομίσει 
     list.innerHTML = ""; // Καθαρίζουμε την παλιά λίστα
@@ -230,6 +221,18 @@ function updateCourses() {
             list.appendChild(card);
         });
     }
+}
+ //Event listener Για ταξινόμηση
+    if (sortSelect) {
+    sortSelect.addEventListener('change', updateCourses);
+}
+//Event listener Για φιλτράρισμα
+    if (categorySelect) {
+    categorySelect.addEventListener('change', updateCourses);
+}
+//Event listener Για αναζήτηση
+    if (searchInput) {
+    searchInput.addEventListener('input', updateCourses);
 }
 
 

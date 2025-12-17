@@ -141,7 +141,7 @@ const books = [
         author: "Martin Kleppmann",
         category: "Databases",
         course: "Διαχείριση Μεγάλων Δεδομένων",
-        cover: "assets/img/book-covers/16.jpg"
+        cover: "assets/img/book-covers/16.jpg " 
     },
     // 17. Ασφάλεια Δικτύων
     {
@@ -180,6 +180,7 @@ const books = [
         cover: "assets/img/book-covers/20.jpg"
     }
 ];
+
 //ftiaxnei koutaki vivliou
 function createBook(book){
     const li = document.createElement('li');
@@ -198,7 +199,7 @@ function createBook(book){
     });
     return li;
 }
-
+// consts gia stoixeia selidas
 const booklist = document.getElementById("book-list");
 const searchInputBooks = document.getElementById("searchInputBooks");
 const categorySelectBooks = document.getElementById("categorySelectBooks");
@@ -220,18 +221,19 @@ if (booklist) {
 
 //analoga to filtro taksinomisi anazitisi emfanizei ta vivlia
 function updateBooks() {
-    if (!booklist) return;
-    let results = [...books];
+    if (!booklist) return;//elenxos ama h lista einai adeia
+    let results = [...books];//antigrafo arxikoy pinaka mathimatwn
 
+    //anazhthsh
     if (searchInputBooks && searchInputBooks.value.trim() !== '') {
         const term = searchInputBooks.value.toLowerCase();
         results = results.filter(b => b.title.toLowerCase().includes(term) || (b.author && b.author.toLowerCase().includes(term)));
     }
-
+    //filtrarisma
     if (categorySelectBooks && categorySelectBooks.value !== 'all') {
         results = results.filter(b => b.category === categorySelectBooks.value);
     }
-
+    //sorting
     if (sortSelectBooks && sortSelectBooks.value !== 'none') {
         if (sortSelectBooks.value === 'asc') {
             results.sort((a,b) => a.title.localeCompare(b.title, 'el'));
@@ -239,18 +241,24 @@ function updateBooks() {
             results.sort((a,b) => b.title.localeCompare(a.title, 'el'));
         }
     }
-
-    booklist.innerHTML = "";
-    if (results.length === 0) {
-        list.innerHTML = "<li style='grid-column:1/-1; text-align:center; padding:40px; color:var(--primary-color)'>Δεν βρέθηκαν βιβλία.</li>";
+    //emfanish neas listas meta apo taxinomish ktlp
+    booklist.innerHTML = "";//katharismos palias listas
+    if (results.length === 0) {//elegxos ama vrethikan apotelesmata
+        booklist.innerHTML = "<li style='grid-column:1/-1; text-align:center; padding:40px; color:var(--primary-color)'>Δεν βρέθηκαν βιβλία.</li>";
         return;
     }
     results.forEach(book => {
         const card = createBook(book);
-        list.appendChild(card);
+        booklist.appendChild(card);
     });
 }
-
-if (searchInputBooks) searchInputBooks.addEventListener('input', updateBooks);
-if (categorySelectBooks) categorySelectBooks.addEventListener('change', updateBooks);
-if (sortSelectBooks) sortSelectBooks.addEventListener('change', updateBooks);
+//prosthethoume tous event listeners
+if (searchInputBooks){
+    searchInputBooks.addEventListener('input', updateBooks);
+}
+if (categorySelectBooks){
+    categorySelectBooks.addEventListener('change', updateBooks);
+}
+if (sortSelectBooks){
+     sortSelectBooks.addEventListener('change', updateBooks);
+}

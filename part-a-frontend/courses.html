@@ -12,24 +12,22 @@
 </head>
 <body>
     <header>
-        
-        <!-- βασική επικεφαλίδα -->
         <div id="upper-header" style="background: var(--primary-color);">
         </div>
-        <!-- μικρή επικεφαλίδα -->
         <div id="site">
             <a href="index.html">E-learning</a>
         </div>
+            <!--navbar klasik-->
             <nav>
                 <ul>
                     <li><a href="index.html">Αρχική</a></li>
                     <li><a href="courses.html">Μαθήματα</a></li>  
                     <li><a href="register.html">Εγγραφή</a></li>
                     <li><a href="books.html">Βιβλία</a></li>
-                    <li><a href="about.html">Σχετικά</a></li>
-                    
+                    <li><a href="about.html">Σχετικά</a></li> 
                 </ul>
             </nav>
+            <!--navbar mobile-->
         <div id="hamburger-icon" onclick="toogleMobileMenu()">
             <div class="bar1"></div>
             <div class="bar2"></div>
@@ -43,33 +41,37 @@
             </ul>
         </div> 
     </header>
-<div class="search-bar-course">
-    <input type="text" id="searchInput" placeholder="Αναζήτηση μαθημάτων...">
-</div>
-<div class="drop-down" id="sortselect">
-    <label for="sort-courses">Ταξινόμηση κατά κατηγορία:</label>
-    <select id="categorySelect">
-        <option value="all">Όλα</option>
-        <option value="Software">Software Development</option>
-        <option value="Data Management">Data Management</option>
-        <option value="Networks">Networks</option>
-        <option value="Artificial Intelligence">Artificial Intelligence</option>
-        <option value="General Knowledge">General Knowledge</option>
-    </select>
-    <label for="sort-order">Ταξινόμηση κατά όνομα:</label>
-    <select id="sortSelect">
-        <option value="none">Καμία</option>
-        <option value="asc">A-Z</option>
-        <option value="desc">Z-A</option>
-    </select>
-</div>
-
+    <!--scearchbar-->
+    <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Αναζήτηση μαθημάτων...">
+    </div>
+    <!--drop down menu gia kathgoria-->
+    <div class="drop-down" id="sortselect">
+        <label for="sort-courses">Ταξινόμηση κατά κατηγορία:</label>
+        <select id="categorySelect">
+            <option value="all">Όλα</option>
+            <option value="Software">Software Development</option>
+            <option value="Data Management">Data Management</option>
+            <option value="Networks">Networks</option>
+            <option value="Artificial Intelligence">Artificial Intelligence</option>
+            <option value="General Knowledge">General Knowledge</option>
+        </select>
+        <!--drop down menu gia onoma-->
+        <label for="sort-order">Ταξινόμηση κατά όνομα:</label>
+        <select id="sortSelect">
+            <option value="none">Καμία</option>
+            <option value="asc">A-Z</option>
+            <option value="desc">Z-A</option>
+        </select>
+    </div>
 </body>
+<!--lista mathimatwn-->
 <div class="list of courses">
-     <H1 class="Course-h1"> Λίστα μαθημάτων</H1>
+     <H1 class="Total-h1"> Λίστα Mαθημάτων</H1>
         <ul class="course-card" id="ulid"> 
         </ul>
 </div>
+    <!--scriptaia gia leitoyrgies me javascript-->
     <script src="assets/js/index.js"></script>
     <script src="assets/js/courses.js"></script>
     <footer>
